@@ -1,0 +1,27 @@
+package com.apmm.javabackendpoc.locationreactivekafkaproducer.config;
+
+
+import com.azure.storage.blob.BlobContainerAsyncClient;
+import com.azure.storage.blob.BlobServiceAsyncClient;
+import com.azure.storage.blob.BlobServiceClientBuilder;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ReactiveAzureBlobStorageConfig {
+    @Value("${azure.storage.connection.string}")
+    private String connectionString;
+    @Value("${azure.storage.container.name}")
+    private String containerName;
+    @Bean
+    public BlobServiceAsyncClient blobServiceAsyncClient() {
+        return new BlobServiceClientBuilder()
+                .connectionString(connectionString)
+                .buildAsyncClient();
+    }
+    @Bean
+    public BlobContainerAsyncClient blobContainerAsyncClient() {
+        return blobServiceAsyncClient().getBlobContainerAsyncClient(containerName);
+    }
+}
