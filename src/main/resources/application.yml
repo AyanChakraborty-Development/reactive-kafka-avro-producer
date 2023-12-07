@@ -1,9 +1,9 @@
 azure:
     storage:
         connection:
-            string: 'DefaultEndpointsProtocol=https;AccountName=sa1locationmasterdata;AccountKey=e56VE3ciNnq+ik/zxQpGPXvHp/ciEoSZEdSCZJa7iPcNJWFOPyCNGK0P6lqruG85i+9WUxnmA5Pt+ASt5KkTRg==;EndpointSuffix=core.windows.net'
+            string: 'DefaultEndpointsProtocol=https;AccountName=acountName;AccountKey=accountKey;EndpointSuffix=core.windows.net'
         container:
-            name: 'locationjsoncontainer'
+            name: 'test'
 
 
 server:
